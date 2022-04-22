@@ -17,6 +17,11 @@ mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
 
 app.use(bodyParser.json());
 
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log('MongoDB database connection established succesfully!')
+})
+
 // IMPORT YOUR API ROUTES HERE
 // Below is just an example. Don't forget to delete it. 
 // It's importing and using everything from the profilesRoutes.js file and also passing app as a parameter for profileRoutes to use

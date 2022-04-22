@@ -7,6 +7,7 @@ function App() {
   const [profiles, setProfiles] = useState(null);
 
   useEffect(() => {
+    //here need to implement requests to get the addresses. Get profiles is just an example
     async function getProfiles() {
       if (!profiles) {
         const response = await getAllProfiles();
@@ -24,7 +25,7 @@ function App() {
           {`${user.first_name} 
           ${user.last_name}`}
         </h3>
-        <p>{user.location}</p>
+        <p>{user.DOB}</p>
       </li>
     );
   };
@@ -35,7 +36,7 @@ function App() {
         {profiles && profiles.length > 0 ? (
           profiles.map((profile) => renderProfile(profile))
         ) : (
-          <p>No profiles found</p>
+          <p>Tavia was here</p>
         )}
       </ul>
     </div>
