@@ -1,0 +1,39 @@
+.container-fluid{
+    padding:30px 50px 30px;
+}
+
+h1{
+    padding:30px 50px;
+}
+
+.form-control{
+
+}
+
+body{
+  display: flex;
+  background-color: #00bdfc;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  justify-content: center;
+  padding:50px;
+
+
+}
+.contact-form{
+
+  background-color: #C2FFF9;
+  opacity: 90%;
+  border: 15px solid #5DC3F5
+
+
+}
+
+input[type=text], input[type=number], input[type=tel], input[type=email]{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #5DC3F5;
+}
+
+.btn-primary{
+  padding:10px;
+}

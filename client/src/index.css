@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.custom {
+  /* fallback for old browsers */
+  background: #D1A5F6;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px
+}
+
+.vh-100{
+    padding-top:20px;
+}
+
+.card{
+    border-radius:15px
+}

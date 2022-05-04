@@ -8,5 +8,30 @@ const getAllProfiles = async () => {
   return response.data || [];
 };
 
+const getProfile = async (id) => {
+  const response = await axios.get(`/api/profile/`+ id);
+  return response.data || [];
+}
+
+const postProfile = async (user) => {
+  const response = await axios.post(`/api/profile/`,user);
+  return response.data || [];
+}
+
+
+const deleteProfile = async (id) => {
+  const response = await axios.delete(`/api/profile/` + id);
+  return response.data || [];
+}
+
+const updateProfile = async (id, update) => {
+  const response = await axios.put(`/api/profile/` + id, update);
+  console.log('This is response', response)
+  return response.data;
+}
+
+
+
+
 // All of the endpoints in this file can be exported below
-export { getAllProfiles };
+export { getAllProfiles, getProfile, postProfile, updateProfile, deleteProfile};

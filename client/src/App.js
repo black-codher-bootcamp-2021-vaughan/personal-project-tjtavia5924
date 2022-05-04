@@ -1,46 +1,35 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/navbar";
+import UpdateContact from "./components/updateContact";
+import DeleteContact from "./components/deleteContact";
+import AddContact from "./components/addContact";
+import Contacts from "./components/contacts";
+import findAddress from "./components/findContact";
+import "./App.css";
+import "./index.css";
+import "./form.css";
 
-// SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
+ 
 
-  useEffect(() => {
-    //here need to implement requests to get the addresses. Get profiles is just an example
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
-      }
-    }
-
-    getProfiles();
-  }, [profiles]);
-
-  const renderProfile = (user) => {
-    return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.DOB}</p>
-      </li>
-    );
-  };
-
-  return (
-    <div>
-      <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
-        ) : (
-          <p>Tavia was here</p>
-        )}
-      </ul>
-    </div>
-  );
+return (
+      <Router>
+        <div className="container">
+          <Navbar />
+          <br/>
+          <Route path="/search" component={findAddress} />
+          <Route path="/contacts" component={Contacts} />
+          <Route path="/edit/:id" component={UpdateContact} />
+          <Route path="/add" component={AddContact} />
+          <Route path="/delete" component={DeleteContact} />
+        </div>
+    </Router>
+ );
 }
 
 export default App;
+
+
